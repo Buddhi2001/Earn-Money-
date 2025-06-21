@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Earn $100+ from Viral Secrets</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      color: #fff;
+      font-family: 'Verdana', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 450px;
+      margin: 50px auto;
+      padding: 30px 25px;
+      background-color: #111;
+      border-radius: 18px;
+      box-shadow: 0 0 18px rgba(255, 0, 0, 0.4);
+    }
+    h2 {
+      font-family: 'Impact', sans-serif;
+      font-size: 26px;
+      text-align: center;
+      color: #ff4d4d;
+      text-transform: uppercase;
+    }
+    .steps {
+      font-size: 15px;
+      text-align: center;
+      line-height: 1.7;
+    }
+    .btn-lg {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    #countdown {
+      font-size: 14px;
+      text-align: center;
+      margin-top: 12px;
+      color: #ffc107;
+    }
+    .views {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 15px;
+      color: #888;
+    }
+    .earning-note {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px;
+      color: #00ff99;
+    }
+    .badge-pill {
+      font-size: 13px;
+      background-color: #222;
+      border: 1px solid #ff4d4d;
+      color: #ff4d4d;
+      padding: 5px 10px;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container text-center">
+    <h2>🔥 18+ Viral Secret That Pays!</h2>
+    <p class="steps">
+      💰 Discover how she made money from a shocking viral story.<br><br>
+      👉 Follow the exact steps to reveal the full method:<br>
+      1️⃣ Click the <span class="text-danger fw-bold">red button</span><br>
+      2️⃣ Stay 20 seconds on the opened page<br>
+      3️⃣ Come back & click the <span class="text-success fw-bold">green button</span><br><br>
+      ✅ Only real users will unlock the truth.
+    </p>
+
+    <div class="d-grid gap-3 mt-4">
+      <button id="redButton" class="btn btn-danger btn-lg rounded-pill">💥 Unlock Now</button>
+      <button id="greenButton" class="btn btn-success btn-lg rounded-pill" disabled>🚀 View Full Story</button>
+    </div>
+
+    <p id="countdown"></p>
+    <p class="views">👁️ Viewed by over 2.3M curious people</p>
+    <p class="earning-note">✅ This method includes: <span class="badge-pill">Monetag Ads</span> + <span class="badge-pill">SproutGigs Income</span></p>
+  </div>
+
+  <noscript>
+    <p class="text-danger text-center mt-3">⚠️ Please enable JavaScript to unlock the full story.</p>
+  </noscript>
+
+  <script>
+    const redButton = document.getElementById('redButton');
+    const greenButton = document.getElementById('greenButton');
+    const countdown = document.getElementById('countdown');
+
+    function checkElapsed() {
+      const storedTime = sessionStorage.getItem('redClickedTime');
+      if (storedTime) {
+        const elapsed = Date.now() - parseInt(storedTime);
+        const secondsLeft = 20 - Math.floor(elapsed / 1000);
+        if (secondsLeft > 0) {
+          countdown.textContent = `⏳ Please wait ${secondsLeft} more second(s)...`;
+          greenButton.setAttribute('disabled', true);
+        } else {
+          countdown.textContent = '✅ You can now view the full story!';
+          greenButton.removeAttribute('disabled');
+        }
+      }
+    }
+
+    setInterval(checkElapsed, 1000);
+
+    redButton.addEventListener('click', () => {
+      sessionStorage.setItem('redClickedTime', Date.now());
+      window.open('https://otieu.com/4/9432612', '_blank'); // Monetag link
+    });
+
+    greenButton.addEventListener('click', () => {
+      const storedTime = sessionStorage.getItem('redClickedTime');
+      if (!storedTime || Date.now() - parseInt(storedTime) < 20000) {
+        alert('⏳ Please wait at least 20 seconds after clicking the red button.');
+      } else {
+        window.location.href = 'https://sproutgigs.com/?a=098e2300'; // Referral link
+      }
+    });
+  </script>
+
+</body>
+</html>
